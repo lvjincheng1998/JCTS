@@ -1,1 +1,0 @@
-del FormatCheck.js HTTP.js URL.js Utils.js
