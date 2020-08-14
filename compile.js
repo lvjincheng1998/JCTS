@@ -5,7 +5,7 @@ const exec = require('child_process').exec;
 const dir_source = path.join(__dirname, "TypeScript");
 const dir_output = path.join(__dirname, 'JavaScript');
 
-fs.readdir(dir_source, function(err, files){
+fs.readdir(dir_source, function(err, files) {
     if (err) {
         console.error("出现错误，操作中断！");
         return;
@@ -13,16 +13,16 @@ fs.readdir(dir_source, function(err, files){
 
     let dirs = [];
 
-    function iterator(i){
-        if(i == files.length) {
+    function iterator(i) {
+        if (i == files.length) {
             let cmd = "tsc --outDir " + dir_output;
 
             for (let file of dirs) {
                 cmd += " " + path.join(dir_source, file);
             }
             
-            exec(cmd, function(error, stdout, stderr) {
-                if (error) {
+            exec(cmd, function(err) {
+                if (err) {
                     console.error("出现错误，操作中断！");
                     return;
                 }
@@ -32,13 +32,13 @@ fs.readdir(dir_source, function(err, files){
             return;
         }
 
-        fs.stat(path.join(dir_source, files[i]), function(err, data){   
+        fs.stat(path.join(dir_source, files[i]), function(err, data) {   
             if (err) {
                 console.error("出现错误，操作中断！");
                 return;
             }
 
-            if(data.isFile()){               
+            if (data.isFile()) {               
                 dirs.push(files[i]);
             }
 
