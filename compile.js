@@ -15,7 +15,7 @@ fs.readdir(dir_source, function(err, files) {
 
     function iterator(i) {
         if (i == files.length) {
-            let cmd = "tsc --outDir " + dir_output;
+            let cmd = "tsc -d --outDir " + dir_output;
 
             for (let file of dirs) {
                 cmd += " " + path.join(dir_source, file);
