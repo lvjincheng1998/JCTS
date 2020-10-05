@@ -3,8 +3,8 @@
  */
 var JC;
 (function (JC) {
-    var Utils;
-    (function (Utils) {
+    var Util;
+    (function (Util) {
         /**
          * 对数组进行洗牌式排序
          * @param arr 任意数组
@@ -17,13 +17,24 @@ var JC;
                 _a = [arr[n], arr[index]], arr[index] = _a[0], arr[n] = _a[1];
             }
         }
-        Utils.shuffleSort = shuffleSort;
+        Util.shuffleSort = shuffleSort;
         /**
          * 对象属性更新
          * @param oldObject 旧对象
          * @param newObject 新对象
          */
         function updateObject(oldObject, newObject) {
+            for (var p in newObject) {
+                oldObject[p] = newObject[p];
+            }
+        }
+        Util.updateObject = updateObject;
+        /**
+         * 对象属性覆盖
+         * @param oldObject 旧对象
+         * @param newObject 新对象
+         */
+        function coverObject(oldObject, newObject) {
             for (var p in oldObject) {
                 delete oldObject[p];
             }
@@ -31,7 +42,7 @@ var JC;
                 oldObject[p] = newObject[p];
             }
         }
-        Utils.updateObject = updateObject;
+        Util.coverObject = coverObject;
         /**
          * 32位通用唯一识别码
          */
@@ -46,6 +57,6 @@ var JC;
             arr[8] = arr[13] = arr[18] = arr[23] = "";
             return arr.join("");
         }
-        Utils.uuid = uuid;
-    })(Utils = JC.Utils || (JC.Utils = {}));
+        Util.uuid = uuid;
+    })(Util = JC.Util || (JC.Util = {}));
 })(JC || (JC = {}));

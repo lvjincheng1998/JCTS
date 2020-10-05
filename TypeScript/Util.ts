@@ -1,7 +1,7 @@
 /**
  * 工具模块
  */
-module JC.Utils {
+module JC.Util {
 
     /**
      * 对数组进行洗牌式排序
@@ -21,6 +21,17 @@ module JC.Utils {
      * @param newObject 新对象
      */
     export function updateObject(oldObject: any, newObject: any) {
+        for (let p in newObject) {
+            oldObject[p] = newObject[p];
+        }
+    }
+
+    /**
+     * 对象属性覆盖
+     * @param oldObject 旧对象
+     * @param newObject 新对象
+     */
+    export function coverObject(oldObject: any, newObject: any) {
         for (let p in oldObject) {
             delete oldObject[p];
         }
