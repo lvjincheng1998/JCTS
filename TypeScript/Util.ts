@@ -54,4 +54,13 @@ module JC.Util {
         arr[8] = arr[13] = arr[18] = arr[23] = "";
         return arr.join("");
     }
+
+    /**
+     * 获取日期字符串
+     */
+    export function getDateStr(): string {
+        let date = new Date();
+        let dateStr = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+        return dateStr;
+    }
 }

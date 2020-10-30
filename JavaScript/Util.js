@@ -58,5 +58,14 @@ var JC;
             return arr.join("");
         }
         Util.uuid = uuid;
+        /**
+         * 获取日期字符串
+         */
+        function getDateStr() {
+            var date = new Date();
+            var dateStr = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+            return dateStr;
+        }
+        Util.getDateStr = getDateStr;
     })(Util = JC.Util || (JC.Util = {}));
 })(JC || (JC = {}));

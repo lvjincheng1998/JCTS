@@ -23,4 +23,8 @@ declare module JC.Util {
      * 32位通用唯一识别码
      */
     function uuid(): string;
+    /**
+     * 获取日期字符串
+     */
+    function getDateStr(): string;
 }
