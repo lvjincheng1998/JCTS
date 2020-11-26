@@ -63,7 +63,11 @@ var JC;
          */
         function getDateStr() {
             var date = new Date();
-            var dateStr = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            month = month < 10 ? ('0' + month) : month;
+            day = day < 10 ? ('0' + day) : day;
+            var dateStr = date.getFullYear() + '-' + month + '-' + day;
             return dateStr;
         }
         Util.getDateStr = getDateStr;

@@ -60,7 +60,11 @@ module JC.Util {
      */
     export function getDateStr(): string {
         let date = new Date();
-        let dateStr = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+        let month: any = date.getMonth() + 1;
+        let day: any = date.getDate();
+        month = month < 10 ? ('0' + month) : month;  
+        day = day < 10 ? ('0' + day) : day;
+        let dateStr = date.getFullYear() + '-' + month + '-' + day;
         return dateStr;
     }
 }
