@@ -1,5 +1,4 @@
 # JCTS
-自定义的 TypeScript 常用类库，能快速编译成 JavaScript 使用，方便修改和调试。
 
 ### NodeJS 项目依赖安装
 - npm install -g cnpm
